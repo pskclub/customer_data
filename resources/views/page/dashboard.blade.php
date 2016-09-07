@@ -27,28 +27,35 @@
                         <th width="20%" class="text-center">จัดการ</th>
                     </tr>
 
+                    @foreach ($customers as $customer)
 
-                    <tr>
-                        <td>183</td>
-                        <td>John Doe</td>
-                        <td>John Doe</td>
-                        <td>11-7-2014</td>
-                        <td>www.goole.com</td>
-                        <td class="text-center">
+                        <tr>
+                            <td>{{ $customer->id }}</td>
+                            <td>{{ $customer->company }}</td>
+                            <td>{{ $customer->name }}</td>
+                            <td>{{ $customer->tel }}</td>
+                            <td>{{ $customer->website }}</td>
+                            <td class="text-center">
 
-                            <button type="button" class="btn btn-info">
-                                <i class="fa fa-list" aria-hidden="true"></i> รายละเอียด
-                            </button>
-                            <button type="button" class="btn btn-warning">
-                                <i class="fa fa-pencil" aria-hidden="true"></i> แก้ไข</button>
-                            <button type="button" class="btn btn-danger">
-                                <i class="fa fa-trash" aria-hidden="true"></i> ลบ
-                            </button>
+                                <a href="{{ url('dashboard/customer/'.$customer->id) }}" type="button" class="btn btn-info">
+                                    <i class="fa fa-list" aria-hidden="true"></i> รายละเอียด
+                                </a>
+                                <a type="button" class="btn btn-warning">
+                                    <i class="fa fa-pencil" aria-hidden="true"></i> แก้ไข
+                                </a>
+                                <a type="button" class="btn btn-danger">
+                                    <i class="fa fa-trash" aria-hidden="true"></i> ลบ
+                                </a>
 
-                        </td>
-                    </tr>
+                            </td>
+                        </tr>
+                    @endforeach
+
 
                     </tbody>
+                    <tfoot>
+                    {{ $customers->links() }}
+                    </tfoot>
                 </table>
             </div>
         </section>

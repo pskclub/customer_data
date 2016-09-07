@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\models\Customer;
 use Auth;
 
 class DashBoardController extends Controller
 {
     public function index()
     {
-
-        return view('page.dashboard');
+        $customers = Customer::paginate(30);
+        return view('page.dashboard', compact('customers'));
     }
 }

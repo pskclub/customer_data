@@ -15,7 +15,7 @@ class CreateCustomersTable extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('company');
+            $table->string('company')->unique();
             $table->string('name');
             $table->text('address');
             $table->string('tel');
@@ -23,8 +23,7 @@ class CreateCustomersTable extends Migration
             $table->string('email');
             $table->string('website');
             $table->string('taxpayers');
-            $table->text('image');
-            $table->text('image_more');
+            $table->text('image')->nullable();
             $table->timestamps();
         });
     }

@@ -10,3 +10,4 @@
 <script src="{{ asset('public/dist/js/app.min.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('public/dist/js/demo.js') }}"></script>
+@stack('scripts')
