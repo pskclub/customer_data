@@ -14,9 +14,9 @@
 
         <form action="#" method="get" class="navbar-form navbar-left">
             <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="ค้นหา...">
+                <input type="text" name="search" value="{{ $request->search or '' }}" class="form-control" placeholder="ค้นหา...">
                 <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+                <button type="submit"  id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
               </span>
             </div>

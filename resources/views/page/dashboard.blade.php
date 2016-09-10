@@ -15,6 +15,9 @@
             </ol>
         </section>
         <section class="content">
+            @if($request->search)
+                <p>ผลการค้นหา : "{{$request->search}}" {{ $customers->total() }} รายการ</p>
+            @endif
             <div class="table-responsive">
                 <table class="table table-hover table-bordered">
                     <tbody>
@@ -37,14 +40,15 @@
                             <td>{{ $customer->website }}</td>
                             <td class="text-center">
 
-                                <a href="{{ url('dashboard/customer/'.$customer->id) }}"  class="btn btn-info">
+                                <a href="{{ url('dashboard/customer/'.$customer->id) }}" class="btn btn-info">
                                     <i class="fa fa-list" aria-hidden="true"></i> รายละเอียด
                                 </a>
-                                <a href="{{ url('dashboard/customer/'.$customer->id.'/edit') }}"  class="btn btn-warning">
+                                <a href="{{ url('dashboard/customer/'.$customer->id.'/edit') }}"
+                                   class="btn btn-warning">
                                     <i class="fa fa-pencil" aria-hidden="true"></i> แก้ไข
                                 </a>
                                 <a href="{{ url('dashboard/customer/'.$customer->id.'/delete') }}"
-                                   onclick="return confirm('ยืนยันการลบ')"  class="btn btn-danger">
+                                   onclick="return confirm('ยืนยันการลบ')" class="btn btn-danger">
                                     <i class="fa fa-trash" aria-hidden="true"></i> ลบ
                                 </a>
 

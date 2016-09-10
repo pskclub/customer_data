@@ -29,7 +29,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ url('dashboard/customer/'.$customer->id.'/add_bill') }}">
+                    <form method="post" action="{{ url('dashboard/customer/'.$customer->id.'/bill/add') }}">
                         {{ csrf_field() }}
                         <div class="box box-info">
                             <div class="box-body">
@@ -57,6 +57,12 @@
                                             <label>ที่อยู่</label>
                                             <textarea name="address" class="form-control" style="max-width: 100%"
                                                       placeholder="ที่อยู่">{{$customer->address}}</textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>เบอร์โทร</label>
+                                            <input type="tel" name="tel" class="form-control"
+                                                   value="{{$customer->tel}}"
+                                                   placeholder="เบอร์โทร">
                                         </div>
 
 

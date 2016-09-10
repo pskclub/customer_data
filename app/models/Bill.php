@@ -8,7 +8,7 @@ class Bill extends Model
 {
     protected $table = 'bills';
     protected $fillable = [
-        'topic', 'name', 'company', 'address', 'date', 'bidder', 'quotation', 'delivery', 'deposit', 'condition', 'note', 'type'
+        'topic', 'name', 'company', 'address', 'date', 'bidder', 'quotation', 'delivery', 'deposit', 'condition', 'note', 'type','tel'
     ];
 
     public function billLists()
@@ -26,7 +26,7 @@ class Bill extends Model
             case 'quotation_list'  :
                 return 'ใบเสนอราคา LIST';
             case 'quotation_bill'  :
-                return 'ใบเสร็จรับงิน';
+                return 'ใบเสร็จรับเงิน';
             default:
                 return "unknown";
         }
@@ -43,7 +43,7 @@ class Bill extends Model
             case 'quotation_list'  :
                 return 'Price List';
             case 'quotation_bill'  :
-                return 'ใบเสร็จรับงิน';
+                return 'ใบเสร็จรับเงิน';
             default:
                 return "unknown";
         }

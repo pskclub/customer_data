@@ -21,10 +21,10 @@ class CustomerController extends Controller
         return redirect()->back();
     }
 
-    public function imageDel($customer_id,$image_id)
+    public function imageDel($customer_id, $image_id)
     {
         $customer = Customer::findOrFail($customer_id);
-        CustomerImage::findOrFail($image_id)->delete();
+        $customer->images()->findOrFail($image_id)->delete();
         return redirect()->back();
     }
 
@@ -48,6 +48,49 @@ class CustomerController extends Controller
             'email' => 'email',
         ]);
         $customer = new Customer();
+        $customer->fill($request->all());
+        $imageSavePath = 'public/storage/images/';
+        if ($request->hasFile('image')) {
+
+            $imageNameGen = str_random(5)
+                . '_'
+                . rand(11111, 99999)
+                . "_" . time()
+                . "."
+                . $request->file('image')->getClientOriginalExtension();
+            Image::make($request->file('image'))->save($imageSavePath . $imageNameGen);
+            $customer->image = $imageSavePath . '/' . $imageNameGen;
+
+        }
+        $customer->save();
+        if ($request->hasFile('images_more')) {
+            foreach ($request->file('images_more') as $imageItem) {
+                if ($imageItem) {
+                    $imageNameGen = str_random(5)
+                        . '_' .
+                        rand(11111, 99999)
+                        . "_"
+                        . time()
+                        . "."
+                        . $imageItem->getClientOriginalExtension();
+                    Image::make($imageItem)->save($imageSavePath . $imageNameGen);
+                    $image = new CustomerImage();
+                    $image->image = $imageSavePath . '/' . $imageNameGen;
+                    $customer->images()->save($image);
+                }
+            }
+
+        }
+        return redirect('dashboard/customer/' . $customer->id);
+    }
+
+    public function update(Request $request, $customer_id)
+    {
+        $customer = Customer::findOrFail($customer_id);
+        $this->validate($request, [
+            'company' => 'unique:customers,company,' . $customer_id,
+            'email' => 'email',
+        ]);
         $customer->fill($request->all());
         $imageSavePath = 'public/storage/images/';
         if ($request->hasFile('image')) {

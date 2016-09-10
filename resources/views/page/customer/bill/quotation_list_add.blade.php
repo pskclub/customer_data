@@ -29,7 +29,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ url('dashboard/customer/'.$customer->id.'/add_bill') }}">
+                    <form method="post" action="{{ url('dashboard/customer/'.$customer->id.'/bill/add') }}">
                         {{ csrf_field() }}
                         <div class="box box-info">
                             <div class="box-body">

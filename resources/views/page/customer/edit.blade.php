@@ -161,7 +161,7 @@
                             <!-- /.box-body -->
                             <div class="box-footer">
                                 {{--<a  href="{{ url('dashboard') }}" class="btn btn-default">Cancel</a>--}}
-                                <button type="submit" class="btn btn-info pull-right"><i class="fa fa-plus"></i> เพิ่ม
+                                <button type="submit" class="btn btn-info pull-right"><i class="fa fa-pencil"></i> แก้ไข
                                 </button>
                             </div>
                             <!-- /.box-footer -->

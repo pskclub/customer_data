@@ -41,7 +41,8 @@
                                    type="button" class="btn btn-info">
                                     <i class="fa fa-list" aria-hidden="true"></i> รายละเอียด
                                 </a>
-                                <a type="button" class="btn btn-warning">
+                                <a href="{{ url('dashboard/customer/'.$customer->id.'/'.$bill->type.'/'.$bill->id.'/edit') }}"
+                                   class="btn btn-warning">
                                     <i class="fa fa-pencil" aria-hidden="true"></i> แก้ไข
                                 </a>
                                 <a href="{{ url('dashboard/customer/'.$customer->id.'/bills/'.$bill->id.'/delete') }}"
