@@ -7,27 +7,19 @@
     <div class="container-fluid content">
         <section class="content-header">
             <h1>
-                Customer Detail
+                {{ $customer->company }}
+                <small>Customer Detail</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{ url('dashboard') }}">Home</a></li>
-                <li><a href="{{ url('dashboard') }}">Customer List</a></li>
-                <li class="active">Customer Detail</li>
+                <li><a href="{{ url('dashboard') }}">Customer</a></li>
+                <li class="active">{{ $customer->company }}</li>
             </ol>
         </section>
         <section class="content">
 
             <div class="row">
                 <div class="col-md-8">
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
                     <div class="box box-default">
                         <table class="table table-hover table-bordered">
                             <tbody>
@@ -70,27 +62,39 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3"><a
-                                    href="{{ url('dashboard/customer/'.$customer->id.'/add/quotation_vat') }}"
+                                    href="{{ url('dashboard/customer/'.$customer->id.'/quotation_vat/add') }}"
                                     class="btn btn-info btn-block">ขอใบเสนอราคา VAT</a></div>
-                        <div class="col-md-3"><a href="#" class="btn btn-danger btn-block">ขอใบเสนอราคา CASH</a></div>
-                        <div class="col-md-3"><a href="#" class="btn btn-success btn-block">ขอใบเสนอราคา LIST</a></div>
-                        <div class="col-md-3"><a href="#" class="btn btn-warning btn-block">เปิดใบเสร็จรับเงิน</a></div>
+                        <div class="col-md-3"><a
+                                    href="{{ url('dashboard/customer/'.$customer->id.'/quotation_cash/add') }}"
+                                    class="btn btn-danger btn-block">ขอใบเสนอราคา CASH</a></div>
+                        <div class="col-md-3"><a
+                                    href="{{ url('dashboard/customer/'.$customer->id.'/quotation_list/add') }}"
+                                    class="btn btn-success btn-block">ขอใบเสนอราคา LIST</a></div>
+                        <div class="col-md-3"><a
+                                    href="{{ url('dashboard/customer/'.$customer->id.'/quotation_bill/add') }}"
+                                    class="btn btn-warning btn-block">เปิดใบเสร็จรับเงิน</a></div>
                     </div>
                     <div class="row" style="margin-top: 20px">
-                        <div class="col-md-3"><a href="#" class="btn btn-info btn-block"><i class="fa fa-eye"></i>
+                        <div class="col-md-3"><a href="{{ url('dashboard/customer/'.$customer->id.'/quotation_vat') }}"
+                                                 class="btn btn-info btn-block"><i class="fa fa-eye"></i>
                                 ขอดูใบเสนอราคา VAT</a></div>
-                        <div class="col-md-3"><a href="#" class="btn btn-danger btn-block"><i class="fa fa-eye"></i>
+                        <div class="col-md-3"><a href="{{ url('dashboard/customer/'.$customer->id.'/quotation_cash') }}"
+                                                 class="btn btn-danger btn-block"><i class="fa fa-eye"></i>
                                 ขอดูใบเสนอราคา CASH</a></div>
-                        <div class="col-md-3"><a href="#" class="btn btn-success btn-block"><i class="fa fa-eye"></i>
+                        <div class="col-md-3"><a href="{{ url('dashboard/customer/'.$customer->id.'/quotation_list') }}"
+                                                 class="btn btn-success btn-block"><i class="fa fa-eye"></i>
                                 ขอดูใบเสนอราคา LIST</a></div>
-                        <div class="col-md-3"><a href="#" class="btn btn-warning btn-block"><i class="fa fa-eye"></i>
+                        <div class="col-md-3"><a href="{{ url('dashboard/customer/'.$customer->id.'/quotation_bill') }}"
+                                                 class="btn btn-warning btn-block"><i class="fa fa-eye"></i>
                                 ขอดูใบเสร็จรับเงิน</a></div>
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <a href="{{ url($customer->image)  }}" target="_blank">
-                        <img class="img-responsive img-thumbnail" src="{{ url($customer->image)  }}">
-                    </a>
+                    @if($customer->image)
+                        <a href="{{ url($customer->image)  }}" target="_blank">
+                            <img class="img-responsive img-thumbnail" src="{{ url($customer->image)  }}">
+                        </a>
+                    @endif
                     <div class="row">
                         @foreach ($customer->images as $image)
                             <div class="col-md-6" style="padding: 0px 15px 0px 15px;margin-top: 15px">

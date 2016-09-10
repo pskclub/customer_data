@@ -7,13 +7,13 @@
     <div class="container-fluid content">
         <section class="content-header">
             <h1>
-                ขอใบเสนอราคา VAT
+                เปิดใบเสร็จรับเงิน
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{ url('dashboard') }}">Home</a></li>
                 <li><a href="{{ url('dashboard') }}">Customer</a></li>
                 <li><a href="{{ url('dashboard/customer/'.$customer->id) }}">{{ $customer->company }}</a></li>
-                <li class="active">ขอใบเสนอราคา VAT</li>
+                <li class="active">เปิดใบเสร็จรับเงิน</li>
             </ol>
         </section>
         <section class="content">
@@ -29,15 +29,21 @@
                             </ul>
                         </div>
                     @endif
-                    <form method="post" action="{{ url('dashboard/customer/3232/add_bill') }}">
+                    <form method="post" action="{{ url('dashboard/customer/'.$customer->id.'/add_bill') }}">
+                        {{ csrf_field() }}
                         <div class="box box-info">
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-md-8">
 
                                         <div class="form-group">
+                                            <label>เรื่อง</label>
+                                            <input type="hidden" name="type" value="quotation_bill">
+                                            <input type="text" name="topic"
+                                                   class="form-control" placeholder="ชื่อเรื่อง">
+                                        </div>
+                                        <div class="form-group">
                                             <label>ชื่อบริษัท</label>
-                                            <input type="hidden" name="type" value="quotation_vat">
                                             <input type="text" name="company" value="{{$customer->company}}"
                                                    class="form-control" placeholder="ชื่อบริษัท">
                                         </div>
@@ -65,7 +71,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>ผู้เสนอราคา</label>
-                                            <input type="text" class="form-control"
+                                            <input type="text" class="form-control" name="bidder"
                                                    placeholder="ผู้เสนอราคา">
                                         </div>
 
@@ -133,26 +139,13 @@
                             <div class="box-body">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>กำหนดยื่นราคา/Quotation Valid for</label>
-                                            <input name="quotation" type="text" class="form-control"
-                                                   placeholder="วัน/Day">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>กำหนดส่งสินค้า/Delivery Time</label>
-                                            <input name="delivery" type="text" class="form-control"
-                                                   placeholder="วัน/Day">
-                                        </div>
+
                                         <div class="form-group">
                                             <label>เงินมัดจำ</label>
                                             <input name="deposit" type="number" class="form-control"
                                                    placeholder="%">
                                         </div>
-                                        <div class="form-group">
-                                            <label>เงื่อนไขการชำระเงิน</label>
-                                            <input name="condition" type="text" class="form-control"
-                                                   placeholder="วัน/Day">
-                                        </div>
+
 
                                     </div>
                                     <div class="col-md-6">

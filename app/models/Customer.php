@@ -24,6 +24,7 @@ class Customer extends Model
     public function deleteAll()
     {
         $this->images()->delete();
+        $this->bills()->delete();
         $this->delete();
     }
 }

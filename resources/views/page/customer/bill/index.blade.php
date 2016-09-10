@@ -7,11 +7,13 @@
     <div class="container-fluid content">
         <section class="content-header">
             <h1>
-                Customer List
+                รายการ{{ $type }}
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{ url('dashboard') }}">Home</a></li>
-                <li class="active">Customer</li>
+                <li><a href="{{ url('dashboard') }}">Customer</a></li>
+                <li><a href="{{ url('dashboard/customer/'.$customer->id) }}">{{ $customer->company }}</a></li>
+                <li class="active"> รายการ{{ $type }}</li>
             </ol>
         </section>
         <section class="content">
@@ -20,31 +22,30 @@
                     <tbody>
                     <tr style="background-color: #d14f37;color: white">
                         <th width="5%" class="text-center">ID</th>
-                        <th width="20%" class="text-center">ชื่อบริษัท</th>
-                        <th width="20%" class="text-center">ชื่อผู้ติดต่อ</th>
-                        <th width="15%" class="text-center">เบอร์โทรศัพท์</th>
-                        <th width="20%" class="text-center">Website</th>
+                        <th width="20%" class="text-center">เรื่อง</th>
+                        <th width="20%" class="text-center">ผู้เสนอราคา</th>
+                        <th width="15%" class="text-center">วันที่เสนอราคา</th>
                         <th width="20%" class="text-center">จัดการ</th>
                     </tr>
 
-                    @foreach ($customers as $customer)
+                    @foreach ($bills as $bill)
 
                         <tr>
-                            <td>{{ $customer->id }}</td>
-                            <td>{{ $customer->company }}</td>
-                            <td>{{ $customer->name }}</td>
-                            <td>{{ $customer->tel }}</td>
-                            <td>{{ $customer->website }}</td>
+                            <td>{{ $bill->id }}</td>
+                            <td class="text-center">{{ $bill->topic }}</td>
+                            <td class="text-center">{{ $bill->name }}</td>
+                            <td class="text-center">{{ $bill->date }}</td>
                             <td class="text-center">
 
-                                <a href="{{ url('dashboard/customer/'.$customer->id) }}"  class="btn btn-info">
+                                <a href="{{ url('dashboard/customer/'.$customer->id.'/bills/'.$bill->id) }}"
+                                   type="button" class="btn btn-info">
                                     <i class="fa fa-list" aria-hidden="true"></i> รายละเอียด
                                 </a>
-                                <a href="{{ url('dashboard/customer/'.$customer->id.'/edit') }}"  class="btn btn-warning">
+                                <a type="button" class="btn btn-warning">
                                     <i class="fa fa-pencil" aria-hidden="true"></i> แก้ไข
                                 </a>
-                                <a href="{{ url('dashboard/customer/'.$customer->id.'/delete') }}"
-                                   onclick="return confirm('ยืนยันการลบ')"  class="btn btn-danger">
+                                <a href="{{ url('dashboard/customer/'.$customer->id.'/bills/'.$bill->id.'/delete') }}"
+                                   onclick="return confirm('ยืนยันการลบ')" class="btn btn-danger">
                                     <i class="fa fa-trash" aria-hidden="true"></i> ลบ
                                 </a>
 
@@ -55,7 +56,7 @@
 
                     </tbody>
                     <tfoot>
-                    {{ $customers->links() }}
+                    {{ $bills->links() }}
                     </tfoot>
                 </table>
             </div>

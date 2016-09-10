@@ -15,12 +15,30 @@ class CustomerController extends Controller
         return view('page.customer.add');
     }
 
+    public function del($customer_id)
+    {
+        Customer::findOrFail($customer_id)->deleteAll();
+        return redirect()->back();
+    }
+
+    public function imageDel($customer_id,$image_id)
+    {
+        $customer = Customer::findOrFail($customer_id);
+        CustomerImage::findOrFail($image_id)->delete();
+        return redirect()->back();
+    }
+
     public function get($customer_id)
     {
         $customer = Customer::findOrFail($customer_id);
         return view('page.customer.detail', compact('customer'));
     }
 
+    public function edit($customer_id)
+    {
+        $customer = Customer::findOrFail($customer_id);
+        return view('page.customer.edit', compact('customer'));
+    }
 
 
     public function store(Request $request)

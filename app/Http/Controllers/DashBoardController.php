@@ -10,7 +10,7 @@ class DashBoardController extends Controller
 {
     public function index()
     {
-        $customers = Customer::paginate(30);
+        $customers = Customer::orderBy('id', 'desc')->paginate(30);
         return view('page.dashboard', compact('customers'));
     }
 }

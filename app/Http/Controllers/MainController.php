@@ -12,6 +12,6 @@ class MainController extends Controller
         if (Auth::check() && Auth::user()->type == 'admin') {
             return redirect('dashboard');
         }
-        return view('page.login');
+        return redirect('login');
     }
 }
