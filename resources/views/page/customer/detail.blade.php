@@ -98,7 +98,7 @@
                     <div class="row">
                         @foreach ($customer->images as $image)
                             <div class="col-md-6" style="padding: 0px 15px 0px 15px;margin-top: 15px">
-                                <a href="{{ url($customer->image)  }}" target="_blank">
+                                <a href="{{ url($image->image)  }}" target="_blank">
                                     <img class="img-responsive img-thumbnail" src="{{url($image->image)  }}">
                                 </a>
                             </div>
