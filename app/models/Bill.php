@@ -13,7 +13,7 @@ class Bill extends Model
 
     public function billLists()
     {
-        return $this->hasMany('App\Models\BillList', 'bill_id');
+        return $this->hasMany('App\models\BillList', 'bill_id');
     }
 
     public function getTypeTranAttribute()

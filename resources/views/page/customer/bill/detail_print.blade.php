@@ -3,6 +3,14 @@
         border-collapse: collapse;
     }
 
+    td {
+        font-size: 1.5em;
+    }
+
+    th {
+        font-size: 1.5em;
+    }
+
 </style>
 
 <table style="width:100%;">
@@ -11,9 +19,23 @@
         <td valign="top">
             <img style="height: 70px" src="{{ asset('public/images/logo.png') }}" alt="">
         </td>
-        <td align="center" valign="middle" style="background-color: black;color: white;padding: 20px"
-        ><h2
-            >{{ $bill->TypeHead }}</h2>
+        <td align="center" valign="middle"
+        >
+            <table style="width:100%;">
+                <tbody>
+                <tr valign="top">
+                    <td valign="top" style="background-color: black;color: white;padding: 5px">
+                        <h2
+                        >{{ $bill->TypeHead }}</h2>
+                    </td>
+                    <td align="center" valign="middle"
+                    >
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
 
         </td>
     </tr>
@@ -29,19 +51,27 @@
             <table class="table table-bordered" style="    background-color: #d2d6de;width: 100%">
                 <tbody>
                 <tr>
-                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">เรื่อง</th>
+                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
+                        เรื่อง
+                    </th>
                     <td style="border: 1px solid black;padding-left: 5px">เสนอราคางานสิ่งพิมพ์</td>
                 </tr>
                 <tr>
-                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">เรียน ATTN</th>
-                    <td style="border: 1px solid black;padding-left: 5px" >{{ $bill->name }}</td>
+                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
+                        เรียน ATTN
+                    </th>
+                    <td style="border: 1px solid black;padding-left: 5px">{{ $bill->name }}</td>
                 </tr>
                 <tr>
-                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">ชื่อบริษัท</th>
+                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
+                        ชื่อบริษัท
+                    </th>
                     <td style="border: 1px solid black;padding-left: 5px">{{ $bill->company }}</td>
                 </tr>
                 <tr>
-                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">ที่อยู่</th>
+                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
+                        ที่อยู่
+                    </th>
                     <td style="border: 1px solid black;padding-left: 5px">{{ $bill->address }}</td>
                 </tr>
 
@@ -53,7 +83,9 @@
             <table class="table table-bordered" style="padding-bottom: 0px;    background-color: #d2d6de;width: 100%">
                 <tbody>
                 <tr>
-                    <th width="30%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">วันที่</th>
+                    <th width="30%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
+                        วันที่
+                    </th>
                     <td style="border: 1px solid black;padding-left: 5px">{{ $bill->date }}</td>
                 </tr>
                 <tr>
@@ -98,7 +130,7 @@
         @foreach($bill->billLists as $list)
             <tr>
                 <td style="border: 1px solid black;height: 30px" align="center">{{ $list->item }}</td>
-                <td style="border: 1px solid black;padding-left: 10px">{{ $list->description }}></td>
+                <td style="border: 1px solid black;padding-left: 10px">{{ $list->description }}</td>
                 <td style="border: 1px solid black;" align="center">{{ number_format($list->qty) }}</td>
                 <td style="border: 1px solid black;" align="center">{{ number_format($list->price) }}</td>
                 <td style="border: 1px solid black;" align="center">{{ number_format($list->price *  $list->qty)}}</td>
@@ -131,7 +163,9 @@
 
 
                 </td>
-                <th colspan="2" style="background-color: #d2d6de;border: 1px solid black;height: 30px;padding-right: 10px" align="right">
+                <th colspan="2"
+                    style="background-color: #d2d6de;border: 1px solid black;height: 30px;padding-right: 10px"
+                    align="right">
                     รวมทั้งสิ้น/Grand Total
                 </th>
                 <td style="background-color: #d2d6de;border: 1px solid black;"
@@ -145,7 +179,7 @@
             <tr>
                 <td colspan="2" rowspan="3" style="padding-right: 5px;padding-top: 10px;
                 @if($bill->type == 'quotation_list')
-                        padding-top:50px;
+                        padding-top:80px;
 
                 @endif
                         ">
@@ -181,7 +215,7 @@
                     <td colspan="3" rowspan="3" style="padding-top: 10px;">
                         <table style="width:100%;">
                             <tbody>
-                            <tr  style="border: 1px solid black;">
+                            <tr style="border: 1px solid black;">
 
                                 <td style="min-height: 200px">
                                     <b>Note : </b><br>
@@ -198,14 +232,17 @@
                     </td>
                 @endif
                 @if($bill->type == 'quotation_vat' || $bill->type == 'quotation_cash')
-                    <th colspan="2" style="background-color: #d2d6de;border: 1px solid black;padding-right: 5px" align="right"><p
+                    <th colspan="2" style="background-color: #d2d6de;border: 1px solid black;padding-right: 5px"
+                        align="right"><p
                                 class="text-right">
                             รวมเป็นเงิน/Total</p></th>
                     <td style="background-color: #d2d6de;border: 1px solid black;" align="center"><p
                                 class="text-center">{{ number_format($total,2) }}</p></td>
             </tr>
             <tr style="background-color: #d2d6de;">
-                <th colspan="2" style="border: 1px solid black;padding-right: 5px" align="right">ภาษีมูลค่าเพิ่ม/Vat 7%</th>
+                <th colspan="2" style="border: 1px solid black;padding-right: 5px" align="right">ภาษีมูลค่าเพิ่ม/Vat
+                    7%
+                </th>
                 <td style="border: 1px solid black;" align="center">
                     @if($bill->type == 'quotation_vat')
                         {{ number_format($vat7,2) }}
@@ -217,7 +254,8 @@
                 </td>
             </tr>
             <tr style="background-color: #d2d6de;">
-                <th colspan="2" align="right" style="border: 1px solid black;padding-right: 5px"><p class="text-right">รวมทั้งสิ้น/Grand
+                <th colspan="2" align="right" style="border: 1px solid black;padding-right: 5px"><p class="text-right">
+                        รวมทั้งสิ้น/Grand
                         Total</p></th>
                 <td align="center" style="border: 1px solid black;"><p class="text-center">
                         @if($bill->type == 'quotation_vat')
@@ -270,22 +308,22 @@ border: none;">
                        style="    background-color: #d2d6de;width: 100%;border: 1px solid black">
                     <tbody>
                     <tr>
-                        <th width="60%" style="border: 1px solid black;height: 30px" align="right">รวมเป็นเงิน/Total
+                        <th width="65%" style="border: 1px solid black;height: 30px" align="right">รวมเป็นเงิน/Total
                         </th>
-                        <td width="50%" style="border: 1px solid black" align="center"
+                        <td width="35%" style="border: 1px solid black" align="center"
                             class="text-center">{{ number_format($total,2) }}</td>
                     </tr>
                     <tr>
-                        <th width="60%" style="border: 1px solid black;height: 30px" align="right">เงินมัดจำ/Deposit
+                        <th width="65%" style="border: 1px solid black;height: 30px" align="right">เงินมัดจำ/Deposit
                         </th>
-                        <td width="50%" style="border: 1px solid black" align="center"
+                        <td width="35%" style="border: 1px solid black" align="center"
                             class="text-center">{{ number_format($bill->deposit) }}</td>
                     </tr>
                     <tr>
-                        <th width="60%" style="border: 1px solid black;height: 30px" align="right">คงเหลือค้างจ่าย/Grand
+                        <th width="65%" style="border: 1px solid black;height: 30px" align="right">คงเหลือค้างจ่าย/Grand
                             Total
                         </th>
-                        <td width="50%" style="border: 1px solid black" align="center"
+                        <td width="35%" style="border: 1px solid black" align="center"
                             class="text-center"> {{ number_format($total-$bill->deposit) }}</td>
                     </tr>
                     </tbody>
@@ -319,19 +357,24 @@ border: none;">
 
 @endif
 @if($bill->type == 'quotation_vat' || $bill->type == 'quotation_cash' || $bill->type == 'quotation_list')
-    <table style="width:100%;margin-top: 50px">
+    <table style="width:100%;margin-top: 20px;
+    @if($bill->type == 'quotation_list')
+            margin-top: 100px;
+
+    @endif
+">
         <tbody>
         <tr valign="middle">
-            <td width="50%" valign="top" >
+            <td width="50%" valign="top">
                 <b>หมายเหตุ : </b><br>
                 1. กรุณาตรวจสอบเอกสารให้เรียบร้อยก่อนสั่งพิมพ์ <br>
-                2. ทางร้านจะไม่รับผิดชอบหากเกิดผิดพลาดหลังจากที่ลูกค้าตรวจสอบงานต้นฉบับและยืนยันสั่งผลิตแล้ว
+                2. ทางร้านจะไม่รับผิดชอบหากเกิดผิดพลาดหลังจากที่ลูกค้า<br>ตรวจสอบงานต้นฉบับและยืนยันสั่งผลิตแล้ว
                 @if($bill->type == 'quotation_vat' || $bill->type == 'quotation_cash')
 
                     <table style="width:100%;margin-top: 10px">
                         <tbody>
                         <tr valign="top">
-                            <td width="50%" valign="top" style="padding: 5px;border: 1px solid black;">
+                            <td width="50%" valign="top" style="padding: 5px;border: 1px solid black;font-size: 1.5em">
                                 <b>Note : </b><br>
                                 {{ $bill->note }}
                             </td>

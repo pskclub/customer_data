@@ -104,7 +104,7 @@
                         @foreach($bill->billLists as $list)
                             <tr>
                                 <td class="text-center">{{ $list->item }}</td>
-                                <td>{{ $list->description }}></td>
+                                <td>{{ $list->description }}</td>
                                 <td class="text-center">{{ number_format($list->qty) }}</td>
                                 <td class="text-center">{{ number_format($list->price) }}</td>
                                 <td class="text-center">{{ number_format($list->price *  $list->qty)}}</td>

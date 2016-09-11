@@ -91,47 +91,52 @@
                                     <table class="table table-striped">
                                         <tbody>
                                         <tr style="background-color: black;color: white">
-                                            <th width="5%" class="text-center">ลำดับ(item)</th>
-                                            <th width="20%" class="text-center">รายการ(Description)</th>
-                                            <th width="20%" class="text-center">จำนวน(qty.)</th>
+                                            <th width="10%" class="text-center">ลำดับ(item)</th>
+                                            <th width="60%" class="text-center">รายการ(Description)</th>
+                                            <th width="15%" class="text-center">จำนวน(qty.)</th>
                                             <th width="15%" class="text-center">หน่วย(Unit Price)</th>
                                         </tr>
 
-
                                         <tr>
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" type="number" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number"
+                                                       class="form-control"></td>
                                             <td><input name="price[]" type="number" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" type="number" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number"
+                                                       class="form-control"></td>
                                             <td><input name="price[]" type="number" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" type="number" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number"
+                                                       class="form-control"></td>
                                             <td><input name="price[]" type="number" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" type="number" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number"
+                                                       class="form-control"></td>
                                             <td><input name="price[]" type="number" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" type="number" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number"
+                                                       class="form-control"></td>
                                             <td><input name="price[]" type="number" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" type="number" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number"
+                                                       class="form-control"></td>
                                             <td><input name="price[]" type="number" class="form-control"></td>
                                         </tr>
 
@@ -180,8 +185,12 @@
 
 
 @push('scripts')
-<script>
-
+<script language="javascript">
+    function CheckNum() {
+        if (event.keyCode < 48 || event.keyCode > 57) {
+            event.returnValue = false;
+        }
+    }
 </script>
 
 @endpush

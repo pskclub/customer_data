@@ -13,12 +13,12 @@ class Customer extends Model
 
     public function images()
     {
-        return $this->hasMany('App\Models\CustomerImage', 'customer_id');
+        return $this->hasMany('App\models\CustomerImage', 'customer_id');
     }
 
     public function bills()
     {
-        return $this->hasMany('App\Models\Bill', 'customer_id');
+        return $this->hasMany('App\models\Bill', 'customer_id');
     }
 
     public function deleteAll()
