@@ -35,7 +35,7 @@
                 </div>
                 <div class="clearfix"></div>
                 <div class="row" style="margin-top: 50px">
-                    <div class="col-xs-7">
+                    <div class="col-md-7">
 
                         <table class="table table-bordered" style="    background-color: #d2d6de;">
                             <tbody>
@@ -62,7 +62,7 @@
 
                     </div>
 
-                    <div class="col-xs-5">
+                    <div class="col-md-5">
                         <table class="table table-bordered" style="padding-bottom: 0px;    background-color: #d2d6de;">
                             <tbody>
                             <tr>
@@ -207,7 +207,7 @@
                 </div>
                 @if($bill->type == 'quotation_bill')
                     <div class="row">
-                        <div class="col-xs-offset-8 col-xs-4">
+                        <div class="col-md-offset-8 col-md-4">
                             <hr style="background-color: black;margin-top: 70px;height: 1px;
 color: #123455;
 background-color: black;
@@ -226,7 +226,7 @@ background-color: black;
 border: none;">
 
                     <div class="row">
-                        <div class="col-xs-5">
+                        <div class="col-md-5">
                             <div class="table-responsive">
                                 <table class="table table-bordered" style="    background-color: #d2d6de;">
                                     <tbody>
@@ -247,7 +247,7 @@ border: none;">
                                 </table>
                             </div>
                         </div>
-                        <div class="col-xs-7">
+                        <div class="col-md-7">
                             <div class="table-responsive">
                                 <table class="table table-bordered" style="    background-color: #d2d6de;">
                                     <tbody>
@@ -268,7 +268,7 @@ border: none;">
                 @endif
                 @if($bill->type == 'quotation_vat' || $bill->type == 'quotation_cash' || $bill->type == 'quotation_list')
                     <div class="row">
-                        <div class="col-xs-6">
+                        <div class="col-md-6">
 
                             <b>หมายเหตุ : </b><br>
                             1. กรุณาตรวจสอบเอกสารให้เรียบร้อยก่อนสั่งพิมพ์ <br>
@@ -281,9 +281,9 @@ border: none;">
                             @endif
 
                         </div>
-                        <div class="col-xs-6" style="padding: 15px">
+                        <div class="col-md-6" style="padding: 15px">
                             <div class="row" style="padding: 0px">
-                                <div class="col-xs-6" style="padding-left: 0px">
+                                <div class="col-md-6" style="padding-left: 0px">
                                     <hr style="background-color: black;margin-top: 70px;height: 1px;
 color: #123455;
 background-color: black;
@@ -293,7 +293,7 @@ border: none;">
                                         ผู้เสนอราคา
                                     </p>
                                 </div>
-                                <div class="col-xs-6">
+                                <div class="col-md-6">
                                     <hr style="background-color: black;margin-top: 70px;height: 1px;
 color: #123455;
 background-color: black;
@@ -310,7 +310,7 @@ border: none;">
                 @endif
             </div>
             <div class="row" style="margin-top: 50px">
-                <div class="col-xs-offset-5 col-xs-2">
+                <div class="col-md-offset-5 col-md-2">
                     <a target="_blank" href="{{ url('dashboard/customer/'.$customer->id.'/bill/'.$bill->id.'/print') }}"
                        class="btn btn-danger btn-block">พิมพ์ใบเสนอราคา</a>
                 </div>
