@@ -97,37 +97,36 @@
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
                                             <td><input name="qty[]" onKeyPress="CheckNum()" type="number" class="form-control"></td>
-                                            <td><input name="price[]" type="number" class="form-control"></td>
+                                            <td><input name="price[]" type="text" onKeyUp="if(this.value*1!=this.value) this.value='' ;" class="form-control"></td>
+                                        </tr>    <tr>
+                                            <td><input name="item[]" type="number" class="form-control"></td>
+                                            <td><input name="description[]" type="text" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number" class="form-control"></td>
+                                            <td><input name="price[]" type="text" onKeyUp="if(this.value*1!=this.value) this.value='' ;" class="form-control"></td>
+                                        </tr>    <tr>
+                                            <td><input name="item[]" type="number" class="form-control"></td>
+                                            <td><input name="description[]" type="text" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number" class="form-control"></td>
+                                            <td><input name="price[]" type="text" onKeyUp="if(this.value*1!=this.value) this.value='' ;" class="form-control"></td>
+                                        </tr>    <tr>
+                                            <td><input name="item[]" type="number" class="form-control"></td>
+                                            <td><input name="description[]" type="text" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number" class="form-control"></td>
+                                            <td><input name="price[]" type="text" onKeyUp="if(this.value*1!=this.value) this.value='' ;" class="form-control"></td>
+                                        </tr>    <tr>
+                                            <td><input name="item[]" type="number" class="form-control"></td>
+                                            <td><input name="description[]" type="text" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number" class="form-control"></td>
+                                            <td><input name="price[]" type="text" onKeyUp="if(this.value*1!=this.value) this.value='' ;" class="form-control"></td>
                                         </tr>
                                         <tr>
                                             <td><input name="item[]" type="number" class="form-control"></td>
                                             <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" onKeyPress="CheckNum()"  type="number" class="form-control"></td>
-                                            <td><input name="price[]" type="number" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input name="item[]" type="number" class="form-control"></td>
-                                            <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" onKeyPress="CheckNum()"  type="number" class="form-control"></td>
-                                            <td><input name="price[]" type="number" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input name="item[]" type="number" class="form-control"></td>
-                                            <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" onKeyPress="CheckNum()"  type="number" class="form-control"></td>
-                                            <td><input name="price[]" type="number" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input name="item[]" type="number" class="form-control"></td>
-                                            <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" onKeyPress="CheckNum()"  type="number" class="form-control"></td>
-                                            <td><input name="price[]" type="number" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td><input name="item[]" type="number" class="form-control"></td>
-                                            <td><input name="description[]" type="text" class="form-control"></td>
-                                            <td><input name="qty[]" onKeyPress="CheckNum()"  type="number" class="form-control"></td>
-                                            <td><input name="price[]" type="number" class="form-control"></td>
+                                            <td><input name="qty[]" onKeyPress="CheckNum()" type="number"
+                                                       class="form-control"></td>
+                                            <td><input name="price[]" type="text"
+                                                       onKeyUp="if(this.value*1!=this.value) this.value='' ;"
+                                                       class="form-control"></td>
                                         </tr>
 
 

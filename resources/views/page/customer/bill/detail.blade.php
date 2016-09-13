@@ -254,7 +254,7 @@ border: none;">
                                     <tr>
                                         <td width="50%" class="text-center"><b>ชื่อผู้ติดต่อ : </b>{{ $bill->name }}
                                         </td>
-                                        <td width="50%" class="text-center"><b>เบอร์โทร : </b>{{ $bill->tel }}</td>
+                                        <td width="50%" class="text-center"><b>เบอร์โทร : </b>{{ $customer->mobile }}</td>
                                     </tr>
                                     <tr>
                                         <td colspan="2"><b>Note : </b>{{ $bill->note }}</td>

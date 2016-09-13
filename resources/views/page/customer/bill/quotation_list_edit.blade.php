@@ -103,7 +103,7 @@
                                                            value="{{ $list->description }}"></td>
                                                 <td><input onKeyPress="CheckNum()" name="qty[]" type="number" class="form-control"
                                                            value="{{ $list->qty }}"></td>
-                                                <td><input name="price[]" type="number" class="form-control"
+                                                <td><input name="price[]" type="text" onKeyUp="if(this.value*1!=this.value) this.value='' ;" class="form-control"
                                                            value="{{ $list->price }}"></td>
                                             </tr>
                                         @endforeach
@@ -112,7 +112,7 @@
                                                 <td><input name="item[]" type="number" class="form-control"></td>
                                                 <td><input name="description[]" type="text" class="form-control"></td>
                                                 <td><input onKeyPress="CheckNum()" name="qty[]" type="number" class="form-control"></td>
-                                                <td><input name="price[]" type="number" class="form-control"></td>
+                                                <td><input name="price[]" type="text" onKeyUp="if(this.value*1!=this.value) this.value='' ;" class="form-control"></td>
                                             </tr>
                                         @endfor
 

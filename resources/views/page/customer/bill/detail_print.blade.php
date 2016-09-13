@@ -11,6 +11,7 @@
         font-size: 1.5em;
     }
 
+
 </style>
 
 <table style="width:100%;">
@@ -48,20 +49,24 @@
     <tbody>
     <tr>
         <td width="60%" valign="top" valign="top">
-            <table class="table table-bordered" style="    background-color: #d2d6de;width: 100%">
+            <table class="table table-bordered" style="    background-color: #F9FAFC;width: 100%">
                 <tbody>
-                <tr>
-                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
-                        เรื่อง
-                    </th>
-                    <td style="border: 1px solid black;padding-left: 5px">เสนอราคางานสิ่งพิมพ์</td>
-                </tr>
-                <tr>
-                    <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
-                        เรียน ATTN
-                    </th>
-                    <td style="border: 1px solid black;padding-left: 5px">{{ $bill->name }}</td>
-                </tr>
+                @if(!$bill->type == 'quotation_bill')
+                    <tr>
+                        <th width="25%"
+                            style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
+                            เรื่อง
+                        </th>
+                        <td style="border: 1px solid black;padding-left: 5px">เสนอราคางานสิ่งพิมพ์</td>
+                    </tr>
+                    <tr>
+                        <th width="25%"
+                            style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
+                            เรียน ATTN
+                        </th>
+                        <td style="border: 1px solid black;padding-left: 5px">{{ $bill->name }}</td>
+                    </tr>
+                @endif
                 <tr>
                     <th width="25%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
                         ชื่อบริษัท
@@ -80,7 +85,7 @@
             </table>
         </td>
         <td width="40%" valign="top">
-            <table class="table table-bordered" style="padding-bottom: 0px;    background-color: #d2d6de;width: 100%">
+            <table class="table table-bordered" style="padding-bottom: 0px;    background-color: #F9FAFC;width: 100%">
                 <tbody>
                 <tr>
                     <th width="30%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
@@ -94,15 +99,20 @@
                     </th>
                     <td style="border: 1px solid black;padding-left: 5px">{{ $bill->id }}</td>
                 </tr>
-                <tr>
-                    <th width="30%" style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px"
-                    >Tax No.
-                    </th>
-                    <td style="border: 1px solid black;padding-left: 5px">{{ $customer->taxpayers }}</td>
-                </tr>
+                @if(!$bill->type == 'quotation_bill')
+                    <tr>
+                        <th width="30%"
+                            style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px"
+                        >Tax No.
+                        </th>
+                        <td style="border: 1px solid black;padding-left: 5px">{{ $customer->taxpayers }}</td>
+                    </tr>
+                @endif
                 </tbody>
             </table>
-            <center><h2>www.print-togo.com</h2></center>
+            @if(!$bill->type == 'quotation_bill')
+                <center><h2>www.print-togo.com</h2></center>
+            @endif
         </td>
     </tr>
     </tbody>
@@ -136,7 +146,7 @@
                 <td style="border: 1px solid black;" align="center">{{ number_format($list->price *  $list->qty)}}</td>
             </tr>
         @endforeach
-        @for($i=$bill->billLists->count();$i<10;$i++)
+        @for($i=$bill->billLists->count();$i<6;$i++)
             <tr style="height: 35px">
                 <td style="border: 1px solid black;height: 30px" align="center"></td>
                 <td style="border: 1px solid black;"></td>
@@ -164,11 +174,11 @@
 
                 </td>
                 <th colspan="2"
-                    style="background-color: #d2d6de;border: 1px solid black;height: 30px;padding-right: 10px"
+                    style="background-color: #F9FAFC;border: 1px solid black;height: 30px;padding-right: 10px"
                     align="right">
                     รวมทั้งสิ้น/Grand Total
                 </th>
-                <td style="background-color: #d2d6de;border: 1px solid black;"
+                <td style="background-color: #F9FAFC;border: 1px solid black;"
                     align="center">{{ number_format($total,2) }}</td>
                 @endif
 
@@ -232,14 +242,14 @@
                     </td>
                 @endif
                 @if($bill->type == 'quotation_vat' || $bill->type == 'quotation_cash')
-                    <th colspan="2" style="background-color: #d2d6de;border: 1px solid black;padding-right: 5px"
+                    <th colspan="2" style="background-color: #F9FAFC;border: 1px solid black;padding-right: 5px"
                         align="right"><p
                                 class="text-right">
                             รวมเป็นเงิน/Total</p></th>
-                    <td style="background-color: #d2d6de;border: 1px solid black;" align="center"><p
+                    <td style="background-color: #F9FAFC;border: 1px solid black;" align="center"><p
                                 class="text-center">{{ number_format($total,2) }}</p></td>
             </tr>
-            <tr style="background-color: #d2d6de;">
+            <tr style="background-color: #F9FAFC;">
                 <th colspan="2" style="border: 1px solid black;padding-right: 5px" align="right">ภาษีมูลค่าเพิ่ม/Vat
                     7%
                 </th>
@@ -253,7 +263,7 @@
 
                 </td>
             </tr>
-            <tr style="background-color: #d2d6de;">
+            <tr style="background-color: #F9FAFC;">
                 <th colspan="2" align="right" style="border: 1px solid black;padding-right: 5px"><p class="text-right">
                         รวมทั้งสิ้น/Grand
                         Total</p></th>
@@ -286,7 +296,7 @@ background-color: black;
 border: none;">
                 <center><p class="text-center" algn="center" style="text-align: center;margin: auto">
                         บดินทร์ รู้แนบเนียน <br>
-                        ผู้เสนอราคา
+                        ผู้รับเงิน
                     </p></center>
 
             </td>
@@ -305,7 +315,7 @@ border: none;">
         <tr>
             <td width="40%" valign="top">
                 <table class="table table-bordered"
-                       style="    background-color: #d2d6de;width: 100%;border: 1px solid black">
+                       style="    background-color: #F9FAFC;width: 100%;border: 1px solid black">
                     <tbody>
                     <tr>
                         <th width="65%" style="border: 1px solid black;height: 30px" align="right">รวมเป็นเงิน/Total
@@ -330,14 +340,14 @@ border: none;">
                 </table>
             </td>
             <td width="60%" valign="top">
-                <table class="table table-bordered" style="    background-color: #d2d6de;width: 100%">
+                <table class="table table-bordered" style="    background-color: #F9FAFC;width: 100%">
                     <tbody>
                     <tr>
                         <td width="50%" style="border: 1px solid black;height: 30px" align="center"><b>ชื่อผู้ติดต่อ
                                 : </b>{{ $bill->name }}
                         </td>
                         <td width="50%" style="border: 1px solid black;height: 30px" align="center"><b>เบอร์โทร
-                                : </b>{{ $bill->tel }}</td>
+                                : </b>{{ $customer->mobile }}</td>
                     </tr>
                     <tr>
                         <td colspan="2" style="border: 1px solid black;height: 30px"><b>Note : </b>{{ $bill->note }}
@@ -362,7 +372,7 @@ border: none;">
             margin-top: 100px;
 
     @endif
-">
+            ">
         <tbody>
         <tr valign="middle">
             <td width="50%" valign="top">
@@ -397,7 +407,9 @@ color: #123455;
 border: none;">
                             <p align="center">
                                 บดินทร์ รู้แนบเนียน <br>
-                                ผู้เสนอราคา
+
+                                    ผู้เสนอราคา
+
                             </p>
                         </td>
                         <td width="50%" align="center" valign="top" style="padding: 5px"

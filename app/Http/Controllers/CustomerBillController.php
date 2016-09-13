@@ -27,16 +27,18 @@ class CustomerBillController extends Controller
         $grandTotalNoVat = $total;
         $thaiGrandTotal = $this->convert($total + $vat7);
         $thaiGrandTotalNoVat = $this->convert($total);
+
         $mpdf = new mPDF('', 'A4', 9, 'sarabun');
-        $mpdf->SetTitle('ใบเสนอราคา '.$bill->topic);
-        $mpdf->SetSubject('ใบเสนอราคา '.$bill->topic);
-        $mpdf->SetCreator('ใบเสนอราคา '.$bill->topic);
-        $mpdf->SetAuthor('ใบเสนอราคา '.$bill->topic);
-        $mpdf->SetKeywords('ใบเสนอราคา '.$bill->topic);
+
+        $mpdf->SetTitle('ใบเสนอราคา ' . $bill->topic);
+        $mpdf->SetSubject('ใบเสนอราคา ' . $bill->topic);
+        $mpdf->SetCreator('ใบเสนอราคา ' . $bill->topic);
+        $mpdf->SetAuthor('ใบเสนอราคา ' . $bill->topic);
+        $mpdf->SetKeywords('ใบเสนอราคา ' . $bill->topic);
         $html = view('page.customer.bill.detail_print', compact('customer', 'bill', 'total', 'vat7', 'grandTotal',
             'grandTotalNoVat', 'thaiGrandTotal', 'thaiGrandTotalNoVat'))->render();
         $mpdf->WriteHTML($html);
-        return $mpdf->Output('ใบเสนอราคา '.$bill->topic.'.pdf', 'D');
+        return $mpdf->Output('ใบเสนอราคา ' . $bill->topic . '.pdf', 'I');
 //        return view('page.customer.bill.detail_print', compact('customer', 'bill'));
     }
 
