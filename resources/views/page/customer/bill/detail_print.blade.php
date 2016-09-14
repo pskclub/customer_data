@@ -51,7 +51,7 @@
         <td width="60%" valign="top" valign="top">
             <table class="table table-bordered" style="    background-color: #F9FAFC;width: 100%">
                 <tbody>
-                @if(!$bill->type == 'quotation_bill')
+                @if($bill->type != 'quotation_bill')
                     <tr>
                         <th width="25%"
                             style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px">
