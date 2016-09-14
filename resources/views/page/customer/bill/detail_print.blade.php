@@ -99,7 +99,7 @@
                     </th>
                     <td style="border: 1px solid black;padding-left: 5px">{{ $bill->id }}</td>
                 </tr>
-                @if(!$bill->type == 'quotation_bill')
+                @if($bill->type != 'quotation_bill')
                     <tr>
                         <th width="30%"
                             style="text-align: right;border: 1px solid black;height: 30px;padding-right: 5px"
@@ -110,7 +110,7 @@
                 @endif
                 </tbody>
             </table>
-            @if(!$bill->type == 'quotation_bill')
+            @if($bill->type != 'quotation_bill')
                 <center><h2>www.print-togo.com</h2></center>
             @endif
         </td>
