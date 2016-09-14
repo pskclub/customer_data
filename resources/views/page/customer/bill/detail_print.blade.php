@@ -142,8 +142,8 @@
                 <td style="border: 1px solid black;height: 30px" align="center">{{ $list->item }}</td>
                 <td style="border: 1px solid black;padding-left: 10px">{{ $list->description }}</td>
                 <td style="border: 1px solid black;" align="center">{{ number_format($list->qty) }}</td>
-                <td style="border: 1px solid black;" align="center">{{ number_format($list->price) }}</td>
-                <td style="border: 1px solid black;" align="center">{{ number_format($list->price *  $list->qty)}}</td>
+                <td style="border: 1px solid black;" align="center">{{ number_format($list->price,2) }}</td>
+                <td style="border: 1px solid black;" align="center">{{ number_format($list->price *  $list->qty,2)}}</td>
             </tr>
         @endforeach
         @for($i=$bill->billLists->count();$i<6;$i++)
