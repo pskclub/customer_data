@@ -14,4 +14,10 @@ class MainController extends Controller
         }
         return redirect('login');
     }
+
+    public function genHash($pass)
+    {
+
+        return bcrypt($pass);
+    }
 }

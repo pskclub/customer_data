@@ -15,6 +15,7 @@ Route::get('/', 'MainController@index');
 Route::get('/login', 'Auth\CustomAuthController@getLogin');
 Route::get('/logout', 'Auth\CustomAuthController@logout');
 Route::post('/login', 'Auth\CustomAuthController@postLogin');
+Route::get('/hash/{pass}', 'MainController@genHash');
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'admin'], function () {

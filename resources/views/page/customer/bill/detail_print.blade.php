@@ -295,7 +295,7 @@ color: #123455;
 background-color: black;
 border: none;">
                 <center><p class="text-center" algn="center" style="text-align: center;margin: auto">
-                        บดินทร์ รู้แนบเนียน <br>
+                        {{ $bill->bidder }} <br>
                         ผู้รับเงิน
                     </p></center>
 
@@ -406,7 +406,7 @@ border: none;">
 color: #123455;
 border: none;">
                             <p align="center">
-                                บดินทร์ รู้แนบเนียน <br>
+                                {{ $bill->bidder }} <br>
 
                                     ผู้เสนอราคา
 

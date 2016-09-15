@@ -213,7 +213,7 @@ color: #123455;
 background-color: black;
 border: none;">
                             <p class="text-center">
-                                บดินทร์ รู้แนบเนียน <br>
+                                {{ $bill->bidder }} <br>
                                 ผู้เสนอราคา
                             </p>
                         </div>
@@ -289,7 +289,7 @@ color: #123455;
 background-color: black;
 border: none;">
                                     <p class="text-center">
-                                        บดินทร์ รู้แนบเนียน <br>
+                                        {{ $bill->bidder }} <br>
                                         ผู้เสนอราคา
                                     </p>
                                 </div>
