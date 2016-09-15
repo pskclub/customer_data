@@ -129,12 +129,12 @@
 <div class="table-responsive">
     <table class="table table-bordered" style="width: 100%;border: 1px solid black;">
         <tbody>
-        <tr>
-            <th width="5%" style="border: 1px solid black;height: 30px" class="text-center">No.</th>
-            <th width="50%" style="border: 1px solid black;" class="text-center">รายการ(Description)</th>
-            <th width="15%" style="border: 1px solid black;" class="text-center">จำนวน(qty.)</th>
-            <th width="15%" style="border: 1px solid black;" class="text-center">หน่วย(Unit Price)</th>
-            <th width="15%" style="border: 1px solid black;" class="text-center">รวมเป็นเงิน</th>
+        <tr style="background-color: black;color: white;">
+            <th width="5%" style="border: 1px solid black;height: 30px;color: white;" class="text-center">No.</th>
+            <th width="50%" style="border: 1px solid black;color: white;" class="text-center">รายการ(Description)</th>
+            <th width="15%" style="border: 1px solid black;color: white;" class="text-center">จำนวน(qty.)</th>
+            <th width="15%" style="border: 1px solid black;color: white;" class="text-center">หน่วย(Unit Price)</th>
+            <th width="15%" style="border: 1px solid black;color: white;" class="text-center">รวมเป็นเงิน</th>
         </tr>
 
         @foreach($bill->billLists as $list)

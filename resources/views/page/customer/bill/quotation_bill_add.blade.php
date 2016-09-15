@@ -165,7 +165,7 @@
 
                                         <div class="form-group">
                                             <label>เงินมัดจำ</label>
-                                            <input name="deposit" type="number" class="form-control"
+                                            <input name="deposit" type="number" class="form-control" value="0"
                                                    placeholder="%">
                                         </div>
 

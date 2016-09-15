@@ -1,7 +1,7 @@
 @extends('_layouts.master_layout')
 
 @push('css')
-
+<link href="{{ asset('public/lightbox2/css/lightbox.min.css') }}" rel="stylesheet">
 @endpush
 @section('content')
     <div class="container-fluid content">
@@ -91,14 +91,14 @@
                 </div>
                 <div class="col-md-4">
                     @if($customer->image)
-                        <a href="{{ url($customer->image)  }}" target="_blank">
+                        <a href="{{ url($customer->image)  }}" data-lightbox="customer">
                             <img class="img-responsive img-thumbnail" src="{{ url($customer->image)  }}">
                         </a>
                     @endif
                     <div class="row">
                         @foreach ($customer->images as $image)
                             <div class="col-md-6" style="padding: 0px 15px 0px 15px;margin-top: 15px">
-                                <a href="{{ url($image->image)  }}" target="_blank">
+                                <a href="{{ url($image->image)  }}"  data-lightbox="customer">
                                     <img class="img-responsive img-thumbnail" src="{{url($image->image)  }}">
                                 </a>
                             </div>
@@ -115,16 +115,7 @@
 
 
 @push('scripts')
-<script>
-    $(document).ready(function () {
-        $('form')
-                .on('click', '.addButton', function () {
-                    var $template = '<input name="images_more[]" type="file" class="form-control" accept="image/*" placeholder="ภาพประกอบ">';
-                    $('#img').append($template)
+<script src="{{ asset('public/lightbox2/js/lightbox.min.js') }}"></script>
 
-                })
-
-    });
-</script>
 
 @endpush
